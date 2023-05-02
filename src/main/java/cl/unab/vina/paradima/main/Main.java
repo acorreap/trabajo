@@ -5,6 +5,7 @@
 package cl.unab.vina.paradima.main;
 
 import cl.unab.vina.paradima.producto.ProductoDAO;
+import cl.unab.vina.paradima.producto.VistaProducto;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,9 +72,14 @@ public class Main extends javax.swing.JFrame {
 
     private void boton_numero_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_numero_1ActionPerformed
         // TODO add your handling code here:
-        ProductoDAO producto = new ProductoDAO();
-        producto.conectarse();
-        producto.crearProducto();
+//        ProductoDAO producto = new ProductoDAO();
+//        producto.conectarse();
+//        producto.crearProducto();
+
+        VistaProducto vistaProducto = new VistaProducto(this);
+        vistaProducto.setLocation(0, 0); 
+        vistaProducto.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_boton_numero_1ActionPerformed
 
