@@ -27,14 +27,13 @@ public class ProductoDAO {
         }
             
             
-    }
-    
-    public void crearProducto() {
-        String query = "insert into prodctos (nombre, precio) values('coca cola', 1500)";
+    }  
+    public void crearProducto(String nombre, float precio) {
+        String query = "insert into productos (nombre, precio) values("+nombre+","+ precio +")";
         try{
             PreparedStatement preparedStmt = this.connect.prepareStatement(query);
-            preparedStmt.setString(1,"coca cola");
-            preparedStmt.setFloat(2, 1500);
+            preparedStmt.setString(1,nombre);
+            preparedStmt.setFloat(2, precio);
             preparedStmt.execute();
             
             

@@ -5,7 +5,7 @@
 package cl.unab.vina.paradima.main;
 
 import cl.unab.vina.paradima.producto.ProductoDAO;
-import cl.unab.vina.paradima.producto.VistaProducto;
+import cl.unab.vina.paradima.producto.MainVista;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,12 +32,10 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new javax.swing.JLabel();
         boton_numero_1 = new javax.swing.JButton();
+        bton_producto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        label1.setText("Hola");
 
         boton_numero_1.setText("Entrar");
         boton_numero_1.addActionListener(new java.awt.event.ActionListener() {
@@ -46,25 +44,29 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        bton_producto.setText("Producto");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(boton_numero_1)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(boton_numero_1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(bton_producto)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(label1)
-                .addGap(27, 27, 27)
+                .addGap(56, 56, 56)
+                .addComponent(bton_producto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(boton_numero_1)
-                .addGap(34, 34, 34))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -72,11 +74,10 @@ public class Main extends javax.swing.JFrame {
 
     private void boton_numero_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_numero_1ActionPerformed
         // TODO add your handling code here:
-//        ProductoDAO producto = new ProductoDAO();
-//        producto.conectarse();
-//        producto.crearProducto();
+        ProductoDAO producto = new ProductoDAO();
+        producto.conectarse();
 
-        VistaProducto vistaProducto = new VistaProducto(this);
+        MainVista vistaProducto = new MainVista(this);
         vistaProducto.setLocation(0, 0); 
         vistaProducto.setVisible(true);
         this.setVisible(false);
@@ -120,6 +121,6 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_numero_1;
-    private javax.swing.JLabel label1;
+    private javax.swing.JButton bton_producto;
     // End of variables declaration//GEN-END:variables
 }
