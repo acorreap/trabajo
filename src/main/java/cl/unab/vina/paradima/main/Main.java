@@ -6,6 +6,7 @@ package cl.unab.vina.paradima.main;
 
 import cl.unab.vina.paradima.producto.ProductoDAO;
 import cl.unab.vina.paradima.producto.MainVista;
+import cl.unab.vina.paradima.utilidades.ConectorDB;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +46,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         bton_producto.setText("Producto");
+        bton_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bton_productoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,15 +80,24 @@ public class Main extends javax.swing.JFrame {
 
     private void boton_numero_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_numero_1ActionPerformed
         // TODO add your handling code here:
-        ProductoDAO producto = new ProductoDAO();
-        producto.conectarse();
-
+        //ProductoDAO producto = new ProductoDAO();
+        //producto.conectarse();
+        ConectorDB conect = new ConectorDB();
+        conect.obtenerConeccion();
         MainVista vistaProducto = new MainVista(this);
         vistaProducto.setLocation(0, 0); 
         vistaProducto.setVisible(true);
         this.setVisible(false);
 
     }//GEN-LAST:event_boton_numero_1ActionPerformed
+
+    private void bton_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bton_productoActionPerformed
+        MainVista vistaProducto = new MainVista(this);
+        vistaProducto.setLocation(0,0);
+        vistaProducto.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_bton_productoActionPerformed
 
     /**
      * @param args the command line arguments

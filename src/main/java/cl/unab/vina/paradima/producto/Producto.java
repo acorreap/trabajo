@@ -11,15 +11,15 @@ package cl.unab.vina.paradima.producto;
 public class Producto {
     private int id;
     private String nombre;
-    private int precio;
+    private float precio;
 
-    public Producto(int id, String nombre, int precio) {
+    public Producto(int id, String nombre, float precio) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public Producto(String nombre, int precio) {
+    public Producto(String nombre, float precio) {
         this.nombre = nombre;
         this.precio = precio;
     }
@@ -40,7 +40,7 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 

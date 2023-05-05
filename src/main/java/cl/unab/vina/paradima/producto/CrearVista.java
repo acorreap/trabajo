@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cl.unab.vina.paradima.producto;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Alumno
@@ -96,7 +98,12 @@ public class CrearVista extends javax.swing.JFrame {
     }//GEN-LAST:event_nombre_ingresadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Controlador control = new Controlador();
+        String nombre = nombre_ingresado.getText();
+        float precio = Float.parseFloat(precio_ingresado.getText());
+        control.imprimir(nombre,precio);
+        control.crearProducto(nombre, precio);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
