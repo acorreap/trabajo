@@ -102,7 +102,8 @@ public class CrearVista extends javax.swing.JFrame {
         String nombre = nombre_ingresado.getText();
         float precio = Float.parseFloat(precio_ingresado.getText());
         control.imprimir(nombre,precio);
-        control.crearProducto(nombre, precio);
+        control.crearProductoModelo(nombre, precio);
+        control.ingresarNuevoProductoDB(nombre, precio);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

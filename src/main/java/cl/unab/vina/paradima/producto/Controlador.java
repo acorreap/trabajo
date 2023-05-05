@@ -4,7 +4,6 @@
  */
 package cl.unab.vina.paradima.producto;
 
-import cl.unab.vina.paradima.utilidades.ConectorDB;
 
 
 /**
@@ -12,18 +11,20 @@ import cl.unab.vina.paradima.utilidades.ConectorDB;
  * @author Alumno
  */
 public class Controlador {
-    ConectorDB coneccion = new ConectorDB();
     ProductoDAO productoDAO = new ProductoDAO();
 
     
     public void imprimir(String nombre,float precio){
         System.out.println(nombre);
         System.out.println(precio);
+        productoDAO.obtenerIdMax();
     }
-    public void crearProducto(String nombre, float precio){
-        Producto producto = new Producto(nombre,precio);
-        productoDAO.ingresarDB(nombre,precio);
-
-
+    public void crearProductoModelo(String nombre, float precio){
+        Producto producto = new Producto(productoDAO.obtenerIdMax()+1,nombre,precio);
     }
+    public void ingresarNuevoProductoDB(String Nombre, float precio){
+        productoDAO.ingresarDB(Nombre, precio);
+    }
+
+    
 }
