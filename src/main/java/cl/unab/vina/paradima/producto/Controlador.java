@@ -14,13 +14,17 @@ public class Controlador {
     ProductoDAO productoDAO = new ProductoDAO();
 
     
-    public void imprimir(String nombre,float precio){
-        System.out.println(nombre);
-        System.out.println(precio);
-        productoDAO.obtenerIdMax();
-    }
     public void crearProductoModelo(String nombre, float precio){
+        try{
         Producto producto = new Producto(productoDAO.obtenerIdMax()+1,nombre,precio);
+        VistaMensaje producto_creado = new VistaMensaje();
+        producto_creado.setLocation(0, 0);
+        producto_creado.setVisible(true);
+        }
+        catch(Exception e){
+            System.out.println("Error");
+            
+        }
     }
     public void ingresarNuevoProductoDB(String Nombre, float precio){
         productoDAO.ingresarDB(Nombre, precio);

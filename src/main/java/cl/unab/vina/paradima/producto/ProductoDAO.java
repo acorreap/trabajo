@@ -12,9 +12,6 @@ import java.sql.*;
  */
 public class ProductoDAO {
     ConectorDB conexion = new ConectorDB();
-    private Statement statement = null;
-    private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
     
     public void ingresarDB(String nombre, float precio) {
         String query = "insert into productos (nombre, precio) values(?,?)";
