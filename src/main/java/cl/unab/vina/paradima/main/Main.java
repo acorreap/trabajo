@@ -7,6 +7,8 @@ package cl.unab.vina.paradima.main;
 import cl.unab.vina.paradima.producto.ProductoDAO;
 import cl.unab.vina.paradima.producto.MainVista;
 import cl.unab.vina.paradima.utilidades.ConectorDB;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +24,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        this.setTitle("ALMACEN");    
+
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,17 +38,14 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        boton_numero_1 = new javax.swing.JButton();
         bton_producto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        boton_numero_1.setText("Entrar");
-        boton_numero_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_numero_1ActionPerformed(evt);
-            }
-        });
+        setLocation(new java.awt.Point(150, 150));
+        setMaximumSize(new java.awt.Dimension(1200, 980));
+        setPreferredSize(new java.awt.Dimension(600, 300));
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
 
         bton_producto.setText("Producto");
         bton_producto.addActionListener(new java.awt.event.ActionListener() {
@@ -57,46 +59,26 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(boton_numero_1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(bton_producto)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(134, 134, 134)
+                .addComponent(bton_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(bton_producto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(boton_numero_1)
-                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(bton_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton_numero_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_numero_1ActionPerformed
-        // TODO add your handling code here:
-        //ProductoDAO producto = new ProductoDAO();
-        //producto.conectarse();
-        ConectorDB conect = new ConectorDB();
-        conect.obtenerConeccion();
-        MainVista vistaProducto = new MainVista(this);
-        vistaProducto.setLocation(0, 0); 
-        vistaProducto.setVisible(true);
-        this.setVisible(false);
-
-    }//GEN-LAST:event_boton_numero_1ActionPerformed
-
     private void bton_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bton_productoActionPerformed
-        MainVista vistaProducto = new MainVista(this);
-        vistaProducto.setLocation(0,0);
-        vistaProducto.setVisible(true);
-        this.setVisible(false);
-        
+        MainVista producto =new MainVista();
+        producto.setVisible(true);
+        producto.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_bton_productoActionPerformed
 
     /**
@@ -135,7 +117,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton boton_numero_1;
     private javax.swing.JButton bton_producto;
     // End of variables declaration//GEN-END:variables
 }

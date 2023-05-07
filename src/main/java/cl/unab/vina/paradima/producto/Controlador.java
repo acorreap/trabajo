@@ -4,6 +4,9 @@
  */
 package cl.unab.vina.paradima.producto;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 
 /**
@@ -18,7 +21,8 @@ public class Controlador {
         try{
         Producto producto = new Producto(productoDAO.obtenerIdMax()+1,nombre,precio);
         VistaMensaje producto_creado = new VistaMensaje();
-        producto_creado.setLocation(0, 0);
+        producto_creado.getLabel().setText("Producto Creado Correctamente");
+        producto_creado.setLocationRelativeTo(producto_creado);
         producto_creado.setVisible(true);
         }
         catch(Exception e){

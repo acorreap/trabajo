@@ -4,10 +4,14 @@
  */
 package cl.unab.vina.paradima.main;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Alumno
  */
 public class Controlador {
+
     
 }
